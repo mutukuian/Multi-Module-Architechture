@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.dagger)
+    id("kotlin-kapt")
 }
 
 android {
@@ -34,10 +36,24 @@ android {
 
 dependencies {
 
+    implementation(project(":feature:search:domain"))
+    implementation(project(":common"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //viewmodel
+    implementation(libs.lifecycle.viewmodel)
+
+    //dagger hilt
+    implementation(libs.dagger.hilt)
+    kapt(libs.dagger.kapt)
+
+    //navigation
+    implementation(libs.navigation.compose)
+
 }
