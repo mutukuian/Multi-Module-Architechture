@@ -5,6 +5,7 @@ import androidx.navigation.navigation
 import com.common.navigation.FeatureApi
 import com.common.navigation.NavigationRoutes
 import com.common.navigation.NavigationSubGraphRoutes
+import com.search.ui.screens.recipe_list.RecipeListScreen
 
 interface SearchFeatureApi : FeatureApi
 
@@ -18,7 +19,7 @@ class SearchFeatureApiImpl : SearchFeatureApi {
             route = NavigationSubGraphRoutes.Search.route
         ) {
             composable(route = NavigationRoutes.RecipeList.route) {
-
+                RecipeListScreen(onClick = {})
             }
             composable(route = NavigationRoutes.RecipeDetails.route) {
 
